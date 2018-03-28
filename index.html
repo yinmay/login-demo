@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <section>
+        <h1>登录</h1>
+        <form action="/login" method="post" name="login">
+            <div>
+                <label>邮箱
+                    <input type="text" name="email">
+                </label>
+            </div>
+            <div>
+                <label>密码
+                    <input type="password" name="password">
+                </label>
+            </div>
+            <input type="submit" value="登录">
+        </form>
+    </section>
+    <section>
+        <h1>注册</h1>
+        <form action="/signUp" method="post" name="signUp">
+            <div>
+                <label>邮箱
+                    <input type="text" name="email">
+                </label>
+            </div>
+            <div>
+                <label>密码
+                    <input type="password" name="password">
+                </label>
+            </div>
+            <div>
+                <label>确认密码
+                    <input type="password" name="password_confirmation">
+                </label>
+            </div>
+            <input type="submit" value="注册">
+        </form>
+    </section>
+    <form hidden action="/resetPassword" method="post" name="resetPassword">
+        <input type="text" name="email">
+        <input type="submit" value="请求重置">
+    </form>
+
+</body>
+
+</html>

@@ -1,7 +1,7 @@
 var http = require('http')
 var fs = require('fs')
 var url = require('url')
-var port = process.argv[2]
+var port = process.env.PORT || 8888
 
 if(!port){
   console.log('请指定端口号好不啦？\nnode server.js 8888 这样不会吗？')
@@ -19,17 +19,18 @@ var server = http.createServer(function(request, response){
 
   /******** 从这里开始看，上面不要看 ************/
 
-  console.log('方方说：含查询字符串的路径\n' + pathWithQuery)
+//   console.log('方方说：含查询字符串的路径\n' + pathWithQuery)
 
   if(path === '/'){
-    response.statusCode = 200
+      var string = fs.readFileSync('./index.html')
+    // response.statusCode = 200
     response.setHeader('Content-Type', 'text/html;charset=utf-8')
-    response.write('哈哈哈')
-    response.end()
+    // response.write('哈哈哈')
+    response.end(string)
   }else{
     response.statusCode = 404
     response.setHeader('Content-Type', 'text/html;charset=utf-8')
-    response.write('呜呜呜')
+    // response.write('呜呜呜')
     response.end()
   }
 
