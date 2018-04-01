@@ -27,6 +27,9 @@ var server = http.createServer(function(request, response){
     response.setHeader('Content-Type', 'text/html;charset=utf-8')
     // response.write('哈哈哈')
     response.end(string)
+  }else if(path == "/signUp" && method === "POST"){
+      console.log(request.body)
+      response.end('here')
   }else{
     response.statusCode = 404
     response.setHeader('Content-Type', 'text/html;charset=utf-8')
