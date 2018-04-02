@@ -7,8 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
-
 <body>
+    
     <section>
         <h1>登录</h1>
         <form action="/login" method="post" name="login">
@@ -32,16 +32,21 @@
                 <label>邮箱
                     <input type="text" name="email">
                 </label>
+                <span class="error" name="email_error"></span>
             </div>
             <div>
                 <label>密码
                     <input type="password" name="password">
                 </label>
+                <span class="error" name="password_error"></span>
+
             </div>
             <div>
                 <label>确认密码
                     <input type="password" name="password_confirmation">
                 </label>
+                <span class="error" name="password_confirmation_error"></span>
+
             </div>
             <input type="submit" value="注册">
         </form>
@@ -50,8 +55,9 @@
         <input type="text" name="email">
         <input type="submit" value="请求重置">
     </form>
-<script src="./node_modules/jquery/dist/jquery.min.js"></script>
-<script src="main.js"></script>
+    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="./main.js"></script>
+
 </body>
 
 </html>

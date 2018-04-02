@@ -47,7 +47,16 @@ var server = http.createServer(function(request, response){
       response.end(JSON.stringify(errors))
 
     }) 
-  }else{
+  }else if(path === '/node_modules/jquery/dist/jquery.min.js'){
+    let string = fs.readFileSync('./node_modules/jquery/dist/jquery.min.js')
+    response.setHeader('Content-Type', 'application/javascript;charset=utf-8')
+    response.end(string)
+  }else if(path === '/main.js'){
+    let string = fs.readFileSync('./main.js')
+    response.setHeader('Content-Type', 'application/javascript;charset=utf-8')
+    response.end(string)
+  }
+  else{
     response.statusCode = 404
     response.setHeader('Content-Type', 'text/html;charset=utf-8')
     response.write('呜呜呜')
@@ -70,10 +79,9 @@ function getPostData(request,callback){
     let postData = {}
     for(var i=0;i<array.length;i++){
       let parts = array[i].split('=')
-      let key = parts[0]
-      let value = parts[1]
+      let key = decodeURIComponent(parts[0])
+      let value =decodeURIComponent(parts[1]) 
       postData[key] = value
-      //console.log(`key is ${key}, value is ${value}`)
     }
         //对象不能直接打印到页面上
         callback.call(null,postData)
